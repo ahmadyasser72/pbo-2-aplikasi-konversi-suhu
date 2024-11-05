@@ -34,8 +34,10 @@ public class JFrameAplikasiKonversiSuhu extends javax.swing.JFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         jTextField1 = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        jRadioButtonCelcius = new javax.swing.JRadioButton();
+        jRadioButtonFahrenheit = new javax.swing.JRadioButton();
+        jRadioButtonKelvin = new javax.swing.JRadioButton();
+        jRadioButtonReamur = new javax.swing.JRadioButton();
         jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
@@ -61,8 +63,13 @@ public class JFrameAplikasiKonversiSuhu extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
         jPanel1.add(jLabel2, gridBagConstraints);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Celcius", "Fahrenheit" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Celcius", "Fahrenheit", "Kelvin", "Reamur" }));
         jComboBox1.setSelectedIndex(-1);
+        jComboBox1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox1ItemStateChanged(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 0;
@@ -70,6 +77,16 @@ public class JFrameAplikasiKonversiSuhu extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
         jPanel1.add(jComboBox1, gridBagConstraints);
 
+        jTextField1.addCaretListener(new javax.swing.event.CaretListener() {
+            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                jTextField1CaretUpdate(evt);
+            }
+        });
+        jTextField1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTextField1FocusGained(evt);
+            }
+        });
         jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField1KeyTyped(evt);
@@ -82,15 +99,43 @@ public class JFrameAplikasiKonversiSuhu extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(6, 6, 6, 6);
         jPanel1.add(jTextField1, gridBagConstraints);
 
-        jPanel2.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.TRAILING, 12, 5));
+        jPanel2.setLayout(new java.awt.GridLayout(2, 2));
 
-        buttonGroup1.add(jRadioButton1);
-        jRadioButton1.setText("Celcius");
-        jPanel2.add(jRadioButton1);
+        buttonGroup1.add(jRadioButtonCelcius);
+        jRadioButtonCelcius.setText("Celcius");
+        jRadioButtonCelcius.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jRadioButtonCelciusItemStateChanged(evt);
+            }
+        });
+        jPanel2.add(jRadioButtonCelcius);
 
-        buttonGroup1.add(jRadioButton2);
-        jRadioButton2.setText("Fahrenheit");
-        jPanel2.add(jRadioButton2);
+        buttonGroup1.add(jRadioButtonFahrenheit);
+        jRadioButtonFahrenheit.setText("Fahrenheit");
+        jRadioButtonFahrenheit.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jRadioButtonFahrenheitItemStateChanged(evt);
+            }
+        });
+        jPanel2.add(jRadioButtonFahrenheit);
+
+        buttonGroup1.add(jRadioButtonKelvin);
+        jRadioButtonKelvin.setText("Kelvin");
+        jRadioButtonKelvin.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jRadioButtonKelvinItemStateChanged(evt);
+            }
+        });
+        jPanel2.add(jRadioButtonKelvin);
+
+        buttonGroup1.add(jRadioButtonReamur);
+        jRadioButtonReamur.setText("Reamur");
+        jRadioButtonReamur.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jRadioButtonReamurItemStateChanged(evt);
+            }
+        });
+        jPanel2.add(jRadioButtonReamur);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
@@ -136,8 +181,47 @@ public class JFrameAplikasiKonversiSuhu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if (Utilities.validasiTidakNull(jComboBox1, "tipe suhu input")
-                || Utilities.validasiTidakKosong(jTextField1, "suhu")) {
+        this.hitungHasil(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
+        var utils = new Utilities(false);
+        utils.validasiInputHanyaAngka(evt);
+    }//GEN-LAST:event_jTextField1KeyTyped
+
+    private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
+        this.hitungHasil(true);
+    }//GEN-LAST:event_jComboBox1ItemStateChanged
+
+    private void jRadioButtonCelciusItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jRadioButtonCelciusItemStateChanged
+        this.hitungHasil(true);
+    }//GEN-LAST:event_jRadioButtonCelciusItemStateChanged
+
+    private void jRadioButtonFahrenheitItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jRadioButtonFahrenheitItemStateChanged
+        this.hitungHasil(true);
+    }//GEN-LAST:event_jRadioButtonFahrenheitItemStateChanged
+
+    private void jRadioButtonKelvinItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jRadioButtonKelvinItemStateChanged
+        this.hitungHasil(true);
+    }//GEN-LAST:event_jRadioButtonKelvinItemStateChanged
+
+    private void jRadioButtonReamurItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jRadioButtonReamurItemStateChanged
+        this.hitungHasil(true);
+    }//GEN-LAST:event_jRadioButtonReamurItemStateChanged
+
+    private void jTextField1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1FocusGained
+        new Utilities(true).clearSaatFocus(evt);
+    }//GEN-LAST:event_jTextField1FocusGained
+
+    private void jTextField1CaretUpdate(javax.swing.event.CaretEvent evt) {//GEN-FIRST:event_jTextField1CaretUpdate
+        this.hitungHasil(true);
+    }//GEN-LAST:event_jTextField1CaretUpdate
+
+    private void hitungHasil(boolean silent) {
+        var utils = new Utilities(silent);
+
+        if (utils.validasiTidakNull(jComboBox1, "format suhu input")
+                || utils.validasiTidakKosong(jTextField1, "suhu")) {
             return;
         }
 
@@ -148,24 +232,28 @@ public class JFrameAplikasiKonversiSuhu extends javax.swing.JFrame {
             input = new Celcius(nilai);
         } else if (tipeInput == "Fahrenheit") {
             input = new Fahrenheit(nilai);
+        } else if (tipeInput == "Kelvin") {
+            input = new Kelvin(nilai);
+        } else if (tipeInput == "Reamur") {
+            input = new Reamur(nilai);
         }
 
         Suhu output;
-        if (jRadioButton1.isSelected()) {
+        if (jRadioButtonCelcius.isSelected()) {
             output = new Celcius(input);
-        } else if (jRadioButton2.isSelected()) {
+        } else if (jRadioButtonFahrenheit.isSelected()) {
             output = new Fahrenheit(input);
+        } else if (jRadioButtonKelvin.isSelected()) {
+            output = new Kelvin(input);
+        } else if (jRadioButtonReamur.isSelected()) {
+            output = new Reamur(input);
         } else {
-            Utilities.showErrorDialog("pilihan tipe suhu output belum dipilih!");
+            utils.showErrorDialog("pilihan format suhu output belum dipilih!");
             return;
         };
 
         jTextField2.setText(output.toString());
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
-        Utilities.validasiInputHanyaAngka(evt);
-    }//GEN-LAST:event_jTextField1KeyTyped
+    }
 
     /**
      * @param args the command line arguments
@@ -211,8 +299,10 @@ public class JFrameAplikasiKonversiSuhu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JRadioButton jRadioButtonCelcius;
+    private javax.swing.JRadioButton jRadioButtonFahrenheit;
+    private javax.swing.JRadioButton jRadioButtonKelvin;
+    private javax.swing.JRadioButton jRadioButtonReamur;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables

@@ -13,6 +13,10 @@ public class Celcius extends Suhu {
         super(other);
         if (other instanceof Fahrenheit) {
             this.nilai = (other.nilai - 32) * 5 / 9;
+        } else if (other instanceof Kelvin) {
+            this.nilai = other.nilai - 273.15;
+        } else if (other instanceof Reamur) {
+            this.nilai = other.nilai * 5 / 4;
         }
     }
 

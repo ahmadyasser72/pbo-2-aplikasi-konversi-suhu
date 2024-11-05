@@ -3,20 +3,21 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
-public class Fahrenheit extends Suhu {
+public class Reamur extends Suhu {
 
-    public Fahrenheit(String s) {
+    public Reamur(String s) {
         super(s);
     }
 
-    public Fahrenheit(Suhu other) {
+    public Reamur(Suhu other) {
         super(other);
         if (other instanceof Celcius) {
-            this.nilai = (other.nilai * 9 / 5) + 32;
+            this.nilai = other.nilai * 4 / 5;
+        } else if (other instanceof Fahrenheit) {
+            this.nilai = (other.nilai - 32) * 4 / 9;
         } else if (other instanceof Kelvin) {
-            this.nilai = (other.nilai - 273.15) * 9 / 5 + 32;
-        } else if (other instanceof Reamur) {
-            this.nilai = (other.nilai * 9 / 4) + 32;
+            this.nilai = (other.nilai - 273.15) * 4 / 5;
         }
     }
+
 }
