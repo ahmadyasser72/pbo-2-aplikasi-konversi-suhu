@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
-
 public class Kelvin extends Suhu {
 
     public Kelvin(String s) {
@@ -20,5 +19,5 @@ public class Kelvin extends Suhu {
             this.nilai = (other.nilai * 5 / 4) + 273.15;
         }
     }
-    
+
 }
