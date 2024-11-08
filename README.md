@@ -1,5 +1,28 @@
 # Tugas 2 - Aplikasi Konversi Suhu ([screenshot](#screenshot))
 
+Aplikasi ini memungkinkan pengguna untuk mengkonversi suhu antar beberapa satuan suhu, seperti Celcius, Fahrenheit, Kelvin, dan Reamur. Pengguna dapat memasukkan nilai suhu dalam satuan yang diinginkan dan memilih satuan suhu yang ingin dikonversi.
+
+## Fitur
+
+- **Input Suhu**: Masukkan suhu dalam satuan yang dipilih menggunakan **dropdown**.
+- **Output Suhu**: Pilih satuan suhu output dengan menggunakan **radio button**.
+- **Konversi**: Setelah memilih input dan output, klik tombol **Konversi** untuk menampilkan hasil konversi suhu.
+
+## Cara Penggunaan
+
+1. Pilih satuan suhu input dari **dropdown**.
+2. Masukkan nilai suhu yang ingin Anda konversi di **kolom input**.
+3. Pilih satuan suhu tujuan di **radio button** (Celcius, Fahrenheit, Kelvin, atau Reamur).
+4. Klik tombol **Konversi** untuk melihat hasil konversi pada **kolom output**.
+
+## Instalasi
+
+1. Pastikan Anda memiliki **Java** versi 8 atau lebih tinggi yang terinstal.
+2. Gunakan **NetBeans IDE** atau IDE lain yang mendukung proyek Java Swing.
+3. Tidak ada konfigurasi tambahan yang diperlukan.
+
+## Detail tugas
+
 1. Deskripsi Program:
 
    - Pengguna memasukkan nilai suhu dan memilih jenis konversi
@@ -55,32 +78,3 @@ Kelas: 5A REGULER BJB TI
 
 9. Ubah format output dari fahrenheit ke reamur
 ![image](https://github.com/user-attachments/assets/d0f79b1c-c150-4160-beac-fe20040283d1)
-
-## Perbandingan dengan [kalkulator online](https://www.mouser.co.id/technical-resources/conversion-calculators/temperature-conversion-calculator)
-
-https://www.mouser.co.id/technical-resources/conversion-calculators/temperature-conversion-calculator
-
-1. Celcius ke fahrenheit, kelvin, dan reamur
-![image](https://github.com/user-attachments/assets/60192337-8310-4be0-95bc-18797535e7af)
-![image](https://github.com/user-attachments/assets/62cb7997-74ea-4f60-a47f-4183a8d151a4)
-![image](https://github.com/user-attachments/assets/6a88c0cf-7403-4e95-a424-559a4042fbad)
-![image](https://github.com/user-attachments/assets/83a7df00-a47c-43f6-901b-bdbb29ce8650)
-
-2. Fahrenheit ke celcius, kelvin, dan reamur
-![image](https://github.com/user-attachments/assets/0415608c-2007-47d4-8c9b-4c16b5049fc1)
-![image](https://github.com/user-attachments/assets/eaec32d6-8a44-4aac-a302-2dd4de5e39d7)
-![image](https://github.com/user-attachments/assets/08681cb3-0d72-4da4-89d4-0dd4fdbf5ccc)
-![image](https://github.com/user-attachments/assets/97fed495-944f-48ec-9e47-e0578e0d24c9)
-
-3. Kelvin ke celcius, fahrenheit, dan reamur
-![image](https://github.com/user-attachments/assets/02c0053a-b2a3-4c5c-ac2e-1ce0b202803b)
-![image](https://github.com/user-attachments/assets/2cd6e0fc-8422-4041-bfc6-d72383afd9d6)
-![image](https://github.com/user-attachments/assets/b6f76571-328c-43e7-b408-ddd453f322eb)
-![image](https://github.com/user-attachments/assets/52fe9dd9-bf58-4a1c-b938-de771f8dd349)
-
-5. Reamur ke celcius, fahrenheit, dan kelvin
-![image](https://github.com/user-attachments/assets/904b7f8e-c1b8-4177-86d7-9c210d04d829)
-![image](https://github.com/user-attachments/assets/5a49f8ba-0040-4cfc-8f66-62568a13a849)
-![image](https://github.com/user-attachments/assets/d5455d21-76f7-45bc-b219-81993c318fff)
-![image](https://github.com/user-attachments/assets/4dbb50be-4747-4313-ba3b-fd7c303601cb)
-
